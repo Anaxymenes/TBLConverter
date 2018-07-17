@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Title</title>
+</head>
+<body>
+    <th:block th:each="attribute : ${attributes}">
+        <p th:text="${attribute}"></p>
+    </th:block>
+</body>
+</html>

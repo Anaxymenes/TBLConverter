@@ -1,0 +1,10 @@
+           .
+FEATURES             Location/Qualifiers
+     CDS             join(62..124,362..>486)
+                     /gene="TEF1"
+                     /codon_start=2
+					 /arthur=3
+     trna            complement(6296..6367)
+                     /gene="trnQ-UUG"
+                     /locus_tag="HiodCp005"
+//
