@@ -19,7 +19,6 @@ public class AnalyzeService {
             boolean start = false;
             while((line = br.readLine()) != null){
                 String after = line.trim().replaceAll("  +","\t");
-
                 String[] tempTab = after.split("\t");
                 if(tempTab.length > 1){
                     if(start)
@@ -27,7 +26,9 @@ public class AnalyzeService {
                     if(tempTab[0].contains("FEATURES"))
                         start = true;
                 }
-                if(tempTab[0].contains("\\\\"))
+                if(     tempTab[0].contains("\\\\") ||
+                        tempTab[0].contains("//") ||
+                        tempTab[0].contains("LOCUS"))
                     start = false;
             }
         }catch (Exception e){

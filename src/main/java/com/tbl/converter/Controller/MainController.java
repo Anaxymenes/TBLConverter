@@ -26,14 +26,14 @@ public class MainController {
     @RequestMapping(value = "analyze", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
     public Analyze analyzeFile(String path){
-        return _analyzeService.analyzeFile("C:\\R2D2\\main\\GB\\moje.gb");
+        return _analyzeService.analyzeFile("C:\\R2D2\\main\\GB\\Another.gb");
 
     }
 
     @RequestMapping(value = "attribute")
     public String analyzeFilev2(Map<String,Object> model){
 
-        model.put("attributes", _analyzeService.analyzeFile("C:\\R2D2\\main\\GB\\moje.gb"));
+        model.put("attributes", _analyzeService.analyzeFile("C:\\R2D2\\main\\GB\\Another.gb"));
         return "index";
     }
 
