@@ -6,7 +6,7 @@
 	<groupId>com.tbl.converter</groupId>
 	<artifactId>converter</artifactId>
 	<version>0.0.1</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>converter</name>
 	<description>Tbl Converter</description>
