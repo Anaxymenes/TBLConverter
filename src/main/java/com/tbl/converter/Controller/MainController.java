@@ -5,10 +5,7 @@ import com.tbl.converter.Service.AnalyzeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,10 +27,10 @@ public class MainController {
 
     }
 
-    @RequestMapping(value = "attribute")
-    public String analyzeFilev2(Map<String,Object> model){
+    @RequestMapping(value = "attribute/{filename}")
+    public String analyzeFilev2(Map<String,Object> model, @PathVariable(name = "filename")String filename){
 
-        model.put("attributes", _analyzeService.analyzeFile("C:\\R2D2\\main\\GB\\Another.gb"));
+        model.put("attributes", _analyzeService.analyzeFile("C:\\TestGB\\"+filename+".gb"));
         return "index";
     }
 
