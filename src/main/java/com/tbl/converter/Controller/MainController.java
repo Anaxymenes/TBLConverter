@@ -7,8 +7,6 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -16,21 +14,24 @@ import java.util.Map;
 public class MainController {
 
     @Autowired
-    AnalyzeService _analyzeService;
+    AnalyzeService analyzeService;
     @Autowired
     ResourceLoader resourceLoader;
 
     @RequestMapping(value = "analyze", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
     public Analyze analyzeFile(String path){
-        return _analyzeService.analyzeFile("C:\\R2D2\\main\\GB\\Another.gb");
+        return analyzeService.analyzeFile("C:\\R2D2\\Main\\GB\\Another.gb");
 
     }
 
-    @RequestMapping(value = "attribute/{filename}")
+    @RequestMapping(value = "attribute/{filename}", method = RequestMethod.GET)
     public String analyzeFilev2(Map<String,Object> model, @PathVariable(name = "filename")String filename){
+        Analyze analyze = analyzeService.analyzeFile("C:\\TestGB\\"+filename+".gb");
+        model.put("attributes", analyze);
+        analyzeService.runConvertToTBL("C:\\TestGB\\"+filename+".gb", analyze);
 
-        model.put("attributes", _analyzeService.analyzeFile("C:\\TestGB\\"+filename+".gb"));
+
         return "index";
     }
 
